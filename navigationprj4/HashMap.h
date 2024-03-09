@@ -43,7 +43,7 @@ public:
  return const_cast<T*>(hm.find(key));
  }
 private:
-    std::vector<std::list<std::pair<std::string, const T*>>> m_hashMap;
+    std::vector<std::list<std::pair<std::string, T>>> m_hashMap;
     int m_NumOfElements;
     int m_bucket;
     double m_max_load;
@@ -63,24 +63,26 @@ int HashMap<T>::size() const{
 }
 template <typename T>
 void HashMap<T>::insert(const std::string& key, const T& value){
-    m_NumOfElements++;
-    if((double)m_NumOfElements/m_bucket > m_max_load){
-        rehash();
-    } //regular insertion
     //insert
     T* update = find(key);
     if(update != nullptr){
         *update = value;
         return;
     }
+    
+    m_NumOfElements++;
+    if((double)m_NumOfElements/m_bucket > m_max_load){
+        rehash();
+    } //regular insertion
+
     int indexToInsert = hashFunction(key);
-    m_hashMap[indexToInsert].push_back(std::make_pair(key, &value));
+    m_hashMap[indexToInsert].push_back(std::make_pair(key, value));
 }
 
 template <typename T>
 void HashMap<T>::rehash(){
     m_bucket*=2;
-    std::vector<std::list<std::pair<std::string, const T*>>> newHashMap;
+    std::vector<std::list<std::pair<std::string, T>>> newHashMap;
     newHashMap.resize(m_bucket);
     
     for(auto it : m_hashMap)
@@ -108,7 +110,7 @@ template <typename T>
 const T* HashMap<T>::find(const std::string& key) const{
     int index = hashFunction(key);
     for( auto p : m_hashMap[index]){
-        if (p.first == key) return p.second;
+        if (p.first == key) return &(p.second);
     }
     return nullptr;
 }

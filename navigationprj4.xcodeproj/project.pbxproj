@@ -47,11 +47,6 @@
 		20FDCB732B9BDB050087B36F = {
 			isa = PBXGroup;
 			children = (
-				20FDCB8B2B9BED3D0087B36F /* tourcmd.h */,
-				20FDCB8A2B9BED260087B36F /* stops.h */,
-				20FDCB892B9BED190087B36F /* geotools.h */,
-				20FDCB882B9BECF30087B36F /* geopoint.h */,
-				20FDCB872B9BECE70087B36F /* base_classes.h */,
 				20FDCB7E2B9BDB050087B36F /* navigationprj4 */,
 				20FDCB7D2B9BDB050087B36F /* Products */,
 			);
@@ -68,6 +63,11 @@
 		20FDCB7E2B9BDB050087B36F /* navigationprj4 */ = {
 			isa = PBXGroup;
 			children = (
+				20FDCB8B2B9BED3D0087B36F /* tourcmd.h */,
+				20FDCB8A2B9BED260087B36F /* stops.h */,
+				20FDCB892B9BED190087B36F /* geotools.h */,
+				20FDCB882B9BECF30087B36F /* geopoint.h */,
+				20FDCB872B9BECE70087B36F /* base_classes.h */,
 				20FDCB862B9BDB3A0087B36F /* HashMap.h */,
 				20FDCB7F2B9BDB050087B36F /* main.cpp */,
 			);
