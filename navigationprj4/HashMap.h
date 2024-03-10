@@ -38,6 +38,9 @@ public:
  // If no association exists with the given key, return nullptr; otherwise,
  // return a pointer to the value associated with that key. This pointer can be
  // used to examine that value or modify it directly within the map.
+HashMap(const HashMap&) = delete;
+HashMap& operator=(const HashMap&) = delete;
+    void printAll() const;
  T* find(const std::string& key) {
  const auto& hm = *this;
  return const_cast<T*>(hm.find(key));
@@ -109,9 +112,26 @@ HashMap<T>::~HashMap(){}
 template <typename T>
 const T* HashMap<T>::find(const std::string& key) const{
     int index = hashFunction(key);
-    for( auto p : m_hashMap[index]){
+    for(const auto &p : m_hashMap[index]){
         if (p.first == key) return &(p.second);
     }
     return nullptr;
+}
+
+template <typename T>
+void HashMap<T>::printAll() const {
+    for (const auto &bucket : m_hashMap) { // Iterate over all buckets
+        for (const auto &pair : bucket) { // Iterate over all key-value pairs within a bucket
+            std::cout << pair.first << ": " << pair.second << std::endl;
+        }
+    }
+}
+
+template <typename T>
+T& HashMap<T>::operator[](const std::string& key){
+    if(find(key) == nullptr){ //if nullptr assign the key to something new
+        insert(key, T());
+    }
+        return *find(key);
 }
 #endif /* HashMap_h */

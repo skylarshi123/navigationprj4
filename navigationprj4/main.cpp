@@ -98,33 +98,37 @@ int main()
     map.insert("two", n2);
     map.insert("three", n3);
     map.insert("four", n4);
-    std::cout << *map.find("one") << std::endl;
-   // map.insert("one", 2); not update yet
-    std::cout << *map.find("three") << std::endl;
+    map.insert("one", n2);
+//    std::cout << *map.find("one") << std::endl;
+//   // map.insert("one", 2); not update yet
+//    std::cout << *map.find("three") << std::endl;
+//    map["five"] = 5;
+//    std::cout<< *map.find("five") << std::endl;
+//    map.printAll();
 
-    // // Attempt to retrieve and print some values
-    // const int* one = map.find("one");
-    // if (one != nullptr) {
-    //     std::cout << "one = " << *one << std::endl;
-    // }
-    //
-    // const int* three = map.find("three");
-    // if (three != nullptr) {
-    //     std::cout << "three = " << *three << std::endl;
-    // }
-    //
-    // // Demonstrate rehashing by adding more elements
-    // std::cout << "Current size before rehashing: " << map.size() << std::endl;
-    // for (int i = 5; i <= 20; ++i) {
-    //     map.insert("key" + std::to_string(i), i);
-    // }
-    // std::cout << "Current size after rehashing: " << map.size() << std::endl;
-    //
-    // // Try to find a value that does not exist
-    // const int* missing = map.find("missing");
-    // if (missing == nullptr) {
-    //     std::cout << "missing = not found" << std::endl;
-    // }
+     // Attempt to retrieve and print some values
+     const int* one = map.find("one");
+     if (one != nullptr) {
+         std::cout << "one = " << *one << std::endl;
+     }
+    
+     const int* three = map.find("three");
+     if (three != nullptr) {
+         std::cout << "three = " << *three << std::endl;
+     }
+    
+     // Demonstrate rehashing by adding more elements
+     std::cout << "Current size before rehashing: " << map.size() << std::endl;
+     for (int i = 5; i <= 20; ++i) {
+         map.insert("key" + std::to_string(i), i);
+     }
+     std::cout << "Current size after rehashing: " << map.size() << std::endl;
+    
+     // Try to find a value that does not exist
+     const int* missing = map.find("missing");
+     if (missing == nullptr) {
+         std::cout << "missing = not found" << std::endl;
+     }
 
 
     return 0;
