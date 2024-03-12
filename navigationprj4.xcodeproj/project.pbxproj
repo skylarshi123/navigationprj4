@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20779C102B9D780100E16F01 /* geodb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20779C0E2B9D780100E16F01 /* geodb.cpp */; };
+		20B6727B2BA020210012A152 /* router.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20B672792BA020210012A152 /* router.cpp */; };
 		20FDCB802B9BDB050087B36F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20FDCB7F2B9BDB050087B36F /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,8 @@
 		20779C0E2B9D780100E16F01 /* geodb.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = geodb.cpp; sourceTree = "<group>"; };
 		20779C0F2B9D780100E16F01 /* geodb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = geodb.h; sourceTree = "<group>"; };
 		20779C112B9D8ADD00E16F01 /* mapdata.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = mapdata.txt; sourceTree = "<group>"; };
+		20B672792BA020210012A152 /* router.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = router.cpp; sourceTree = "<group>"; };
+		20B6727A2BA020210012A152 /* router.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = router.h; sourceTree = "<group>"; };
 		20FDCB7C2B9BDB050087B36F /* navigationprj4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = navigationprj4; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FDCB7F2B9BDB050087B36F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		20FDCB862B9BDB3A0087B36F /* HashMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashMap.h; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				20779C0F2B9D780100E16F01 /* geodb.h */,
+				20B6727A2BA020210012A152 /* router.h */,
+				20B672792BA020210012A152 /* router.cpp */,
 				20779C0E2B9D780100E16F01 /* geodb.cpp */,
 				20779C112B9D8ADD00E16F01 /* mapdata.txt */,
 				20FDCB8B2B9BED3D0087B36F /* tourcmd.h */,
@@ -139,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20FDCB802B9BDB050087B36F /* main.cpp in Sources */,
+				20B6727B2BA020210012A152 /* router.cpp in Sources */,
 				20779C102B9D780100E16F01 /* geodb.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
