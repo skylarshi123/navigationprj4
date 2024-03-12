@@ -26,6 +26,7 @@
 /* Begin PBXFileReference section */
 		20779C0E2B9D780100E16F01 /* geodb.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = geodb.cpp; sourceTree = "<group>"; };
 		20779C0F2B9D780100E16F01 /* geodb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = geodb.h; sourceTree = "<group>"; };
+		20779C112B9D8ADD00E16F01 /* mapdata.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = mapdata.txt; sourceTree = "<group>"; };
 		20FDCB7C2B9BDB050087B36F /* navigationprj4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = navigationprj4; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FDCB7F2B9BDB050087B36F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		20FDCB862B9BDB3A0087B36F /* HashMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashMap.h; sourceTree = "<group>"; };
@@ -51,7 +52,6 @@
 			isa = PBXGroup;
 			children = (
 				20779C0E2B9D780100E16F01 /* geodb.cpp */,
-				20779C0F2B9D780100E16F01 /* geodb.h */,
 				20FDCB7E2B9BDB050087B36F /* navigationprj4 */,
 				20FDCB7D2B9BDB050087B36F /* Products */,
 			);
@@ -68,6 +68,8 @@
 		20FDCB7E2B9BDB050087B36F /* navigationprj4 */ = {
 			isa = PBXGroup;
 			children = (
+				20779C0F2B9D780100E16F01 /* geodb.h */,
+				20779C112B9D8ADD00E16F01 /* mapdata.txt */,
 				20FDCB8B2B9BED3D0087B36F /* tourcmd.h */,
 				20FDCB8A2B9BED260087B36F /* stops.h */,
 				20FDCB892B9BED190087B36F /* geotools.h */,
