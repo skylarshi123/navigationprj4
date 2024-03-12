@@ -51,7 +51,6 @@
 		20FDCB732B9BDB050087B36F = {
 			isa = PBXGroup;
 			children = (
-				20779C0E2B9D780100E16F01 /* geodb.cpp */,
 				20FDCB7E2B9BDB050087B36F /* navigationprj4 */,
 				20FDCB7D2B9BDB050087B36F /* Products */,
 			);
@@ -69,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				20779C0F2B9D780100E16F01 /* geodb.h */,
+				20779C0E2B9D780100E16F01 /* geodb.cpp */,
 				20779C112B9D8ADD00E16F01 /* mapdata.txt */,
 				20FDCB8B2B9BED3D0087B36F /* tourcmd.h */,
 				20FDCB8A2B9BED260087B36F /* stops.h */,

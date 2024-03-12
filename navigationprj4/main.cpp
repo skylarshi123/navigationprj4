@@ -9,6 +9,7 @@
 //#include "router.h"
 #include "stops.h"
 #include "tourcmd.h"
+#include "geodb.h"
 //#include "tour_generator.h"
 
 using namespace std;
@@ -88,47 +89,37 @@ using namespace std;
 //        print_tour(tcs);
 //}
 
-int main()
-{
-    HashMap<int> map(0.75); // Create a HashMap instance for storing int values
 
-    // Insert some key-value pairs
-    int n1 = 1, n2 = 2, n3 = 3, n4 = 4;
-    map.insert("one", n1);
-    map.insert("two", n2);
-    map.insert("three", n3);
-    map.insert("four", n4);
-    map.insert("one", n2);
-//    std::cout << *map.find("one") << std::endl;
-//   // map.insert("one", 2); not update yet
-//    std::cout << *map.find("three") << std::endl;
-//    map["five"] = 5;
-//    std::cout<< *map.find("five") << std::endl;
-//    map.printAll();
+int main() {
+    GeoDatabase g;
+    g.load("/Users/skylarshi/Desktop/navigationprj4/navigationprj4/mapdata.txt");
 
-     // Attempt to retrieve and print some values
-     const int* one = map.find("one");
-     if (one != nullptr) {
-         std::cout << "one = " << *one << std::endl;
-     }
+    string lat = "34.0419265";
+    string long1 = "-118.5010322";
+    GeoPoint p1 = GeoPoint(lat, long1);
+    string p = p1.to_string();
+
+    vector<GeoPoint> points = g.get_connected_points(p1);
+
+    for (auto it : points)
+    {
+        cout << it.to_string() << endl; //should print geopoint
+    }
+
+    //test POI
+    std::string poi = "Thalians Mental Health Center";
+    GeoPoint point;
+    if (g.get_poi_location(poi, point)) {
+        std::cout << "Location of " << poi << ": " << point.to_string() << std::endl;
+    }
+
+    //test street
+    GeoPoint g1 = GeoPoint("34.0753246", "-118.3816632");
+    GeoPoint g2 = GeoPoint("34.0752704", "-118.3832229");
+    string t = g.get_street_name(g1, g2);
+
+    cout << t << endl;
     
-     const int* three = map.find("three");
-     if (three != nullptr) {
-         std::cout << "three = " << *three << std::endl;
-     }
-    
-     // Demonstrate rehashing by adding more elements
-     std::cout << "Current size before rehashing: " << map.size() << std::endl;
-     for (int i = 5; i <= 20; ++i) {
-         map.insert("key" + std::to_string(i), i);
-     }
-     std::cout << "Current size after rehashing: " << map.size() << std::endl;
-    
-     // Try to find a value that does not exist
-     const int* missing = map.find("missing");
-     if (missing == nullptr) {
-         std::cout << "missing = not found" << std::endl;
-     }
 
 
     return 0;
