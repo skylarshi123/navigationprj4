@@ -33,6 +33,7 @@
 		20B6727A2BA020210012A152 /* router.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = router.h; sourceTree = "<group>"; };
 		20B6727C2BA1A0980012A152 /* tour_generator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tour_generator.cpp; sourceTree = "<group>"; };
 		20B6727D2BA1A0980012A152 /* tour_generator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tour_generator.h; sourceTree = "<group>"; };
+		20B6727F2BA260AE0012A152 /* stops.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = stops.txt; sourceTree = "<group>"; };
 		20FDCB7C2B9BDB050087B36F /* navigationprj4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = navigationprj4; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FDCB7F2B9BDB050087B36F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		20FDCB862B9BDB3A0087B36F /* HashMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashMap.h; sourceTree = "<group>"; };
@@ -75,6 +76,7 @@
 			children = (
 				20779C0F2B9D780100E16F01 /* geodb.h */,
 				20B6727C2BA1A0980012A152 /* tour_generator.cpp */,
+				20B6727F2BA260AE0012A152 /* stops.txt */,
 				20B6727D2BA1A0980012A152 /* tour_generator.h */,
 				20B6727A2BA020210012A152 /* router.h */,
 				20B672792BA020210012A152 /* router.cpp */,
