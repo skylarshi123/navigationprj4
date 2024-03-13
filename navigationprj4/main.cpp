@@ -1,18 +1,18 @@
-#include <cstdio>
-#include <iomanip>
-#include <iostream>
-#include <map>
-#include <vector>
-#include "HashMap.h"
-
+//#include <cstdio>
+//#include <iomanip>
+//#include <iostream>
+//#include <map>
+//#include <vector>
+//#include "HashMap.h"
+//
+////#include "geodb.h"
+////#include "router.h"
+//#include "stops.h"
+//#include "tourcmd.h"
 //#include "geodb.h"
-//#include "router.h"
-#include "stops.h"
-#include "tourcmd.h"
-#include "geodb.h"
-//#include "tour_generator.h"
-
-using namespace std;
+////#include "tour_generator.h"
+//
+//using namespace std;
 
 //void print_tour(vector<TourCommand>& tcs)
 //{
@@ -90,37 +90,61 @@ using namespace std;
 //}
 
 
+//int main() {
+//    GeoDatabase g;
+//
+//    string lat = "34.0419265";
+//    string long1 = "-118.5010322";
+//    GeoPoint p1 = GeoPoint(lat, long1);
+//    string p = p1.to_string();
+//
+//    vector<GeoPoint> points = g.get_connected_points(p1);
+//
+//    for (auto it : points)
+//    {
+//        cout << it.to_string() << endl; //should print geopoint
+//    }
+//
+//    //test POI
+//    std::string poi = "Thalians Mental Health Center";
+//    GeoPoint point;
+//    if (g.get_poi_location(poi, point)) {
+//        std::cout << "Location of " << poi << ": " << point.to_string() << std::endl;
+//    }
+//
+//    //test street
+//    GeoPoint g1 = GeoPoint("34.0753246", "-118.3816632");
+//    GeoPoint g2 = GeoPoint("34.0752704", "-118.3832229");
+//    string t = g.get_street_name(g1, g1);
+//
+//    cout << t << endl;
+//    
+//
+//
+//    return 0;
+//}
+
+#include "router.h"
+#include "geodb.h"
+#include "geopoint.h"
+
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
 int main() {
-    GeoDatabase g;
-    g.load("/Users/skylarshi/Desktop/navigationprj4/navigationprj4/mapdata.txt");
+    GeoDatabase db;
+    db.load("/Users/skylarshi/Desktop/navigationprj4/navigationprj4/mapdata.txt");
+    Router router(db);
+    GeoPoint pt1;
+    GeoPoint pt2;
+    db.get_poi_location("Diddy Riese", pt1);
+    db.get_poi_location("Ami Sushi", pt2);
+    vector<GeoPoint> route = router.route(pt1, pt2);
 
-    string lat = "34.0419265";
-    string long1 = "-118.5010322";
-    GeoPoint p1 = GeoPoint(lat, long1);
-    string p = p1.to_string();
-
-    vector<GeoPoint> points = g.get_connected_points(p1);
-
-    for (auto it : points)
-    {
-        cout << it.to_string() << endl; //should print geopoint
+    for(const auto& point : route) {
+        cerr << point.to_string() << endl;
     }
 
-    //test POI
-    std::string poi = "Thalians Mental Health Center";
-    GeoPoint point;
-    if (g.get_poi_location(poi, point)) {
-        std::cout << "Location of " << poi << ": " << point.to_string() << std::endl;
-    }
-
-    //test street
-    GeoPoint g1 = GeoPoint("34.0753246", "-118.3816632");
-    GeoPoint g2 = GeoPoint("34.0752704", "-118.3832229");
-    string t = g.get_street_name(g1, g2);
-
-    cout << t << endl;
-    
-
-
-    return 0;
 }

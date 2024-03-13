@@ -31,32 +31,30 @@ bool GeoDatabase::load(const string& map_data_file){
     }
     string nameOfStreet;
     while(getline(infile, nameOfStreet)){
-        string latitudeStart;
-        string longitudeStart;
-        string latitudeEnd;
-        string longitudeEnd;
+        string latitudeStart, longitudeStart, latitudeEnd, longitudeEnd;
         infile >> latitudeStart >> longitudeStart >> latitudeEnd >> longitudeEnd;
         infile.ignore(10000, '\n');
+        //convert the 4 strings into geopoints
         GeoPoint startPoint(latitudeStart, longitudeStart);
         GeoPoint endPoint(latitudeEnd, longitudeEnd);
-        
+        //now convert those geopoints to string equivalent for hashmap implementation
         const string start =  startPoint.to_string();
         const string end = endPoint.to_string();
         //connecting all the starting and ending of the segments to each other
         m_connected[start].push_back(endPoint);
         m_connected[end].push_back(startPoint);
-        //now add the street name
+        //now add the street name, which will just use the concatenation of the start and end for the key, note when searching, we  need to search both ways
         m_streets[start+end] = nameOfStreet;
-        
         //check to see if there are points of interest near geopoints
         //I need to be able to get the point of interest name and geopoint
         int numPointOfInterest;
         infile >> numPointOfInterest;
         infile.ignore(10000, '\n');
         if(numPointOfInterest != 0){
+            //if there is a point of interest, I will need to make a midpoint between the two points
             GeoPoint midPoint = midpoint(startPoint, endPoint);
             string midPointName = midPoint.to_string();
-            //connecting the starting and ending of the segments to the midpoint
+            //connecting the starting and ending of the segments to the midpoint, theme is both ways cause bidirectional
             m_connected[start].push_back(midPoint);
             m_connected[end].push_back(midPoint);
             m_connected[midPointName].push_back(startPoint);
@@ -64,6 +62,7 @@ bool GeoDatabase::load(const string& map_data_file){
             //note since we are concatenating, we have to search both directions to return the street name
             m_streets[start+midPointName] = nameOfStreet;
             m_streets[end+midPointName] = nameOfStreet;
+            //this is to have the midpoint connected to the points have the street name
             for (int i = 0; i<numPointOfInterest; i++){
                 string pointOfInterestLine;
                 getline(infile, pointOfInterestLine);
