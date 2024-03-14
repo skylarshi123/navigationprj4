@@ -81,7 +81,7 @@ std::vector<TourCommand> TourGenerator::generate_tour(const Stops& stops) const{
                     string streetNameNext = m_geodatabase->get_street_name(p2, p3);
                     double angle = angle_of_turn(p1, p2, p3);
                     
-                    if(streetName != streetNameNext && angle != 0) {
+                    if(streetName != streetNameNext && angle >= 1 && angle<=359) {
                         string turnDirection;
                         if(angle >= 1 && angle < 180) turnDirection = "left";
                         else turnDirection = "right";
