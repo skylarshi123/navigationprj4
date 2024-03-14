@@ -38,7 +38,7 @@ std::vector<GeoPoint> Router::route(const GeoPoint& pt1, const GeoPoint& pt2) co
             if(isOptimizedVertex[target_vertex_string]){
                 continue;
             }
-            if(!distance.contains(target_vertex_string)) distance[target_vertex_string] = 99999999;
+            if(!distance.count(target_vertex_string)) distance[target_vertex_string] = 99999999;
             double lengthOfEdge = distance_earth_miles(cur_vertex, target_vertex);
             double competingDistance = distance[cur_vertex_string]+lengthOfEdge;
             if(distance[target_vertex_string] > competingDistance){

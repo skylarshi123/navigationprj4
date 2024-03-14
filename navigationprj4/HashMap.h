@@ -119,15 +119,6 @@ const T* HashMap<T>::find(const std::string& key) const{
 }
 
 template <typename T>
-void HashMap<T>::printAll() const {
-    for (const auto &bucket : m_hashMap) { // Iterate over all buckets
-        for (const auto &pair : bucket) { // Iterate over all key-value pairs within a bucket
-            std::cout << pair.first << ": " << pair.second << std::endl;
-        }
-    }
-}
-
-template <typename T>
 T& HashMap<T>::operator[](const std::string& key){
     if(find(key) == nullptr){ //if nullptr assign the key to something new
         insert(key, T());
