@@ -28,7 +28,6 @@ std::vector<TourCommand> TourGenerator::generate_tour(const Stops& stops) const{
         string stopDescription;
         //returns empty vector if can't find, while also getting the info bc its passed in by reference
         if(!stops.get_poi_data(i, stopName, stopDescription)) {
-            cerr << "FUCK1";
             return {};
         }
         TourCommand commentaryCmd;
@@ -37,7 +36,6 @@ std::vector<TourCommand> TourGenerator::generate_tour(const Stops& stops) const{
         GeoPoint currentStopPoint;
         if(i < numStops - 1){
             if(!m_geodatabase->get_poi_location(stopName, currentStopPoint)) {
-                cerr << "FUCK2";
                 return {};
             }
         }
@@ -46,19 +44,14 @@ std::vector<TourCommand> TourGenerator::generate_tour(const Stops& stops) const{
         string nextStopDescription;
         if(i+1!=numStops){
             if(!stops.get_poi_data(i+1, nextStopName, nextStopDescription)) {
-                cerr << i+1;
-                cerr << numStops;
-                cerr << "FUCK3";
                 return {};
             }
             GeoPoint nextStopPoint;
             if(!m_geodatabase->get_poi_location(nextStopName, nextStopPoint)) {
-                cerr << "FUCK4";
                 return {};
             }
             vector<GeoPoint> route = m_routerbase->route(currentStopPoint, nextStopPoint);
             if(route.empty()) {
-                cerr << "FUCK5";
                 return {};
             }
             
