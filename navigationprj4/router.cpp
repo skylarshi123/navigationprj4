@@ -11,6 +11,8 @@
 #include <vector>
 #include "geotools.h"
 #include <utility>
+#include <algorithm>
+
 using namespace std;
 
 Router::Router(const GeoDatabaseBase& geo_db){
