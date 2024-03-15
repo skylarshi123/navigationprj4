@@ -38,9 +38,8 @@ public:
  // If no association exists with the given key, return nullptr; otherwise,
  // return a pointer to the value associated with that key. This pointer can be
  // used to examine that value or modify it directly within the map.
-HashMap(const HashMap&) = delete;
-HashMap& operator=(const HashMap&) = delete;
-    void printAll() const;
+ HashMap(const HashMap&) = delete;
+ HashMap& operator=(const HashMap&) = delete;
  T* find(const std::string& key) {
  const auto& hm = *this;
  return const_cast<T*>(hm.find(key));
