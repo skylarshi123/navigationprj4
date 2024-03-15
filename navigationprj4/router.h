@@ -4,10 +4,11 @@
 //
 //  Created by Skylar Shi on 3/11/24.
 //
-#include "geodb.h"
 #include "base_classes.h"
 #include "unordered_map"
-#include <algorithm>
+#include <vector>
+#include <utility>
+#include "geopoint.h"
 class Router: public RouterBase
 {
 public:

@@ -8,7 +8,6 @@
 #ifndef tour_generator_hpp
 #define tour_generator_hpp
 #include "base_classes.h"
-#include "geodb.h"
 
 class TourGenerator: public TourGeneratorBase
 {

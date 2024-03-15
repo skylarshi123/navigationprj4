@@ -10,6 +10,8 @@
 #include "tourcmd.h"
 #include <vector>
 #include "geotools.h"
+#include "base_classes.h"
+#include <string>
 
 using namespace std;
 

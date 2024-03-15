@@ -9,6 +9,8 @@
 #define geodb_hpp
 #include "base_classes.h"
 #include "HashMap.h"
+#include "geopoint.h"
+#include <string>
 #include <vector>
 class GeoDatabase: public GeoDatabaseBase
 {
